@@ -8,6 +8,8 @@ import Hoisting from "./Hoisting/Hoisting";
 import UseCallback from "./useCallback/UseCallback";
 import LiftingStateUp from "./LiftingStateUp/LiftingStateUp";
 import UseEffect from "./UseEffect/UseEffect";
+import LazyLoading from "./LazyLoading/LazyLoading";
+import Pagination from "./Pagination/Pagination";
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="/useCallback" element={<UseCallback />} />
         <Route path="/liftingStateUp" element={<LiftingStateUp />} />
         <Route path="/useEffect" element={<UseEffect />} />
+        <Route path="/lazyLoading" element={<LazyLoading />} />
+        <Route path="/pagination" element={<Pagination />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </Router>

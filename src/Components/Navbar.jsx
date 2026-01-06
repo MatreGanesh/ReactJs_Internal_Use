@@ -59,6 +59,24 @@ export default function Navbar() {
         >
           useEffect
         </NavLink>
+        <NavLink
+          to="/lazyLoading"
+          className={({ isActive }) => [
+            "px-4 py-1 text-red-700", // always
+            isActive && "font-bold border-b-2 border-blue-500", // only if active
+          ]}
+        >
+          LazyLoading
+        </NavLink>
+        <NavLink
+          to="/pagination"
+          className={({ isActive }) => [
+            "px-4 py-1 text-red-700", // always
+            isActive && "font-bold border-b-2 border-blue-500", // only if active
+          ]}
+        >
+          Pagination
+        </NavLink>
       </nav>
     </div>
   );
