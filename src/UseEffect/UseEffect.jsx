@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import UseEffectThrottling from "./UseEffectThrottling";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -38,31 +39,38 @@ export default function Users() {
   });
 
   return (
-    <div className="flex flex-col items-center space-y-4">
-      <h1 className="text-2xl font-semibold">User Search (Debounce)</h1>
+    <>
+      <div className="flex items-start justify-evenly px-5">
+        <div className="flex flex-col items-center space-y-4">
+          <h1 className="text-2xl font-semibold">User Search (Debounce)</h1>
 
-      <input
-        className="border px-3 py-1"
-        placeholder="Search by name, city, email..."
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
+          <input
+            className="border px-3 py-1"
+            placeholder="Search by name, city, email..."
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
 
-      <ul className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4">
-        {filteredUsers.map((user) => (
-          <li
-            key={user.id}
-            className="border p-4 rounded shadow-sm hover:shadow-md transition"
-          >
-            <p>{user.id}</p>
-            <p className="font-semibold text-lg">
-              {user.name.firstname} {user.name.lastname}
-            </p>
-            <p className="text-sm text-gray-600">{user.email}</p>
-            <p className="text-sm text-gray-500">{user.address.city}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+          <ul className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4">
+            {filteredUsers.map((user) => (
+              <li
+                key={user.id}
+                className="border p-4 rounded shadow-sm hover:shadow-md transition"
+              >
+                <p>{user.id}</p>
+                <p className="font-semibold text-lg">
+                  {user.name.firstname} {user.name.lastname}
+                </p>
+                <p className="text-sm text-gray-600">{user.email}</p>
+                <p className="text-sm text-gray-500">{user.address.city}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <UseEffectThrottling />
+        </div>
+      </div>
+    </>
   );
 }

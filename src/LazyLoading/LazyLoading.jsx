@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function UseEffectDebouncing() {
+export default function LazyLoading() {
   return (
     <>
       <div></div>
